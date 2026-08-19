@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loose Goose Comedy Engine</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">LOCAL-FIRST · HITL · 92 BPM</p>
+      <h1>Loose Goose Comedy Engine</h1>
+      <p>Mine the truth. Find the premise. Score the beat. Let the room vote.</p>
+    </div>
+    <div class="header-actions">
+      <button id="newDraft">New</button>
+      <button id="importBtn">Import</button>
+      <button id="exportBtn" class="primary">Export JSON</button>
+      <input id="importFile" type="file" accept="application/json" hidden>
+    </div>
+  </header>
+
+  <nav>
+    <button class="tab active" data-tab="seed">1. Memory Seed</button>
+    <button class="tab" data-tab="lenses">2. Comedy Lenses</button>
+    <button class="tab" data-tab="beats">3. Beat Score</button>
+    <button class="tab" data-tab="summary">4. Track Summary</button>
+  </nav>
+
+  <main>
+    <section id="seed" class="panel active">
+      <div class="grid two">
+        <label>Title<input id="title" placeholder="The memory, not the punchline"></label>
+        <label>Sensitivity<select id="sensitivity"><option>private</option><option>sensitive</option><option>public</option><option>sealed</option></select></label>
+        <label>Time period<input id="timePeriod"></label>
+        <label>Location<input id="location"></label>
+      </div>
+      <label>Raw memory<textarea id="rawMemory" rows="7" placeholder="What actually happened, before joke writing?"></textarea></label>
+      <div class="grid two">
+        <label>What did you want?<textarea id="want"></textarea></label>
+        <label>What obstructed it?<textarea id="obstacle"></textarea></label>
+        <label>Weird / vivid detail<textarea id="weirdDetail"></textarea></label>
+        <label>Emotional truth<textarea id="emotionalTruth"></textarea></label>
+        <label>What did you think then?<textarea id="thoughtThen"></textarea></label>
+        <label>What do you think now?<textarea id="thoughtNow"></textarea></label>
+        <label>Receipts (one per line)<textarea id="receipts"></textarea></label>
+        <label>Unknowns — do not fill<textarea id="unknowns"></textarea></label>
+      </div>
+
+      <div class="section-heading">
+        <div><p class="eyebrow">TRUTH LOCK</p><h2>Atomic claims</h2></div>
+        <button id="addClaim">Add claim</button>
+      </div>
+      <div id="claims"></div>
+    </section>
+
+    <section id="lenses" class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">FAN OUT</p><h2>Comedy lenses</h2></div>
+        <button id="generateLenses" class="primary">Generate questions</button>
+      </div>
+      <p class="muted">These are prompts, not answers. A model or human writer may explore them without changing the truth lock.</p>
+      <div id="lensCards" class="lens-grid"></div>
+    </section>
+
+    <section id="beats" class="panel">
+      <div class="grid two">
+        <label>Comic premise<textarea id="premise" placeholder="This is funny because..."></textarea></label>
+        <label>Repeatable game<textarea id="game" placeholder="The behaviour that repeats and escalates..."></textarea></label>
+        <label>Scene<textarea id="scene"></textarea></label>
+        <label>Comic flaw<textarea id="comicFlaw"></textarea></label>
+        <label>Opening line<textarea id="openingLine"></textarea></label>
+        <label>Closing button<textarea id="button"></textarea></label>
+      </div>
+      <div class="section-heading">
+        <div><p class="eyebrow">SCORE</p><h2>Beats at 92 BPM</h2></div>
+        <button id="addBeat">Add beat</button>
+      </div>
+      <div id="beatsList"></div>
+      <div class="runtime-card">
+        <div><span>Script words</span><strong id="wordTotal">0</strong></div>
+        <div><span>Required runtime</span><strong id="runtimeRequired">0:00</strong></div>
+        <div><span>With optional beats</span><strong id="runtimeMax">0:00</strong></div>
+        <div><span>92 BPM beats</span><strong id="beatEquivalent">0</strong></div>
+      </div>
+    </section>
+
+    <section id="summary" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">CANON GATE</p><h2>Track summary</h2></div><button id="copySummary">Copy Markdown</button></div>
+      <pre id="summaryText"></pre>
+    </section>
+  </main>
+
+  <footer>All data stays in this browser unless you export it.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
