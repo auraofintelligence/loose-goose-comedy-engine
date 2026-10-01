@@ -50,6 +50,8 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent); bo
 .runtime-card strong { display: block; font-size: 1.5rem; margin-top: .25rem; }
 pre { white-space: pre-wrap; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; min-height: 340px; overflow: auto; }
 footer { padding: 2rem; text-align: center; color: var(--muted); border-top: 1px solid var(--line); }
+.related-sites { position: static; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; padding: .5rem 0; border: 0; background: transparent; backdrop-filter: none; overflow: visible; }
+.related-sites a { color: var(--text); text-underline-offset: .2em; }
 @media (max-width: 850px) {
   header { align-items: flex-start; flex-direction: column; }
   .hero { min-height: 580px; background-position: 63% center; }
